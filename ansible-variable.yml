@@ -1,0 +1,18 @@
+---
+- hosts: all  
+  user: ec2-user
+  sudo: true
+
+  vars:
+    pack_name: httpd
+  vars_files:
+    - web_var.yml
+  tasks:
+    - name: Install {{ pack_name }}
+      yum: pkg={{ pack_name }} state=installed
+      notify: start httpd
+#    - name: start {{ serv_name }}
+#     service: name={{ serv_name }} state=started
+  handlers:
+   -  name: start httpd
+      action: service name=httpd state=started

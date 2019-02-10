@@ -1,0 +1,12 @@
+---
+- hosts: all
+  user: ec2-user
+  sudo: true
+
+  tasks:
+    - name: create_user
+      username:= {{item}} state= present
+      with_items:
+         - user1
+         - user2
+         - user3

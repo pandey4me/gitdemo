@@ -1,0 +1,9 @@
+---
+- hosts:dev servers
+
+    user: Rajesh
+    sudo: true
+
+tasks:
+  -name: Install Web Server
+   yum: pkg=httpd state=installed

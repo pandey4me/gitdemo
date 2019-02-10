@@ -1,0 +1,8 @@
+---
+- hosts: all
+  user: ec2-user
+  sudo: true
+
+  tasks:
+    - name: Install web Server
+      yum: pkg=httpd state=installed
